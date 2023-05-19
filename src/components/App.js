@@ -11,6 +11,7 @@ import AddPlacePopup from "./AddPlacePopup";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Login from "./Login";
 import ProtectedRouteElement from "./ProtectedRoute";
+import Register from "./Register";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({})
@@ -162,10 +163,10 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="body">
         <div className="page">
-          <Header />
+          <Header isAuth={isAuth}/>
           <Routes>
-            <Route path='/sign-in' element={<Login />} />
-            <Route path='/sign-up' element={<Login />} />
+            <Route path='/sign-in' element={<Login handleLogin={handleLogin} />} />
+            <Route path='/sign-up' element={<Register />} />
             <Route path='/'
               element={<ProtectedRouteElement element={Main} 
                 isAuth={isAuth} 

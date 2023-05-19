@@ -21,6 +21,7 @@ export default function Login({ handleLogin }) {
         }
         api.authorize(email, password)
             .then((data) => {
+                console.log(data)
                 if (data.jwt) {
                     setEmail('');
                     setPassword('');
@@ -33,7 +34,7 @@ export default function Login({ handleLogin }) {
 
     return (
         <div className='auth'>
-            <form onSubmit={handleLogin}> 
+            <form onSubmit={handleSubmit}> 
                 <h2 className='popup__title auth__title'>Вход</h2>
                 <div className='auth__form'>
 

@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://auth.nomoreparties.co/';
+export const BASE_URL = 'https://auth.nomoreparties.co';
 
 class Api {
     constructor(options) {
@@ -114,8 +114,8 @@ class Api {
       })
       .then((response => response.json()))
       .then((data) => {
-        if (data.user){
-          localStorage.setItem('jwt', data.jwt);
+        if (data){
+          localStorage.setItem('jwt', data.token);
           return data;
         }
       })
