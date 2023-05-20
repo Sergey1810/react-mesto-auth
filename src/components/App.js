@@ -21,18 +21,20 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({ isOpen: false })
   const [cards, setCards] = useState([])
   const [isAuth, setIsAuth] = useState(false)
+  const [userData, setUserData] = useState(null)
 
   const navigate = useNavigate()
 
   useEffect(() => {
     handleTokenCheck();
-  }, [])
+  }, [navigate])
 
   const handleTokenCheck = () => {
-    if (localStorage.getItem('jwt')) {
-      const jwt = localStorage.getItem('jwt');
+    if (localStorage.getItem('token')) {
+      const jwt = localStorage.getItem('token');
       api.checkToken(jwt).then((res) => {
         if (res) {
+          setUserData(res.data.email)
           setIsAuth(true);
           navigate("/", { replace: true })
         }
@@ -42,6 +44,11 @@ function App() {
 
   const handleLogin = () => {
     setIsAuth(true);
+  }
+
+  const handleLoginOut = () => {
+    setUserData('')
+    setIsAuth(false)
   }
 
   const isOpen = isEditAvatarPopupOpen || isEditProfilePopupOpen || isAddPlacePopupOpen || selectedCard.isOpen
@@ -163,20 +170,21 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="body">
         <div className="page">
-          <Header isAuth={isAuth}/>
+          <Header isAuth={isAuth} userData={userData} handleLoginOut={handleLoginOut} />
           <Routes>
             <Route path='/sign-in' element={<Login handleLogin={handleLogin} />} />
             <Route path='/sign-up' element={<Register />} />
             <Route path='/'
-              element={<ProtectedRouteElement element={Main} 
-                isAuth={isAuth} 
+              element={<ProtectedRouteElement element={Main}
+                isAuth={isAuth}
                 onEditProfile={handleEditProfileClick}
                 onAddPlace={handleAddPlaceClick}
                 onEditAvatar={handleEditAvatarClick}
                 onCardClick={handleCardClick}
                 onCardLike={handleCardLike}
                 cards={cards}
-                onCardDelete={handleCardDelete}/>} />
+                onCardDelete={handleCardDelete} />} />
+            <Route path='*' element={<Login handleLogin={handleLogin} />} />
           </Routes>
 
           <Footer />

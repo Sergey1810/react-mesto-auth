@@ -1,4 +1,6 @@
 .menu__item {
+    margin: 0;
+    padding: 0;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-style: 'Regular';
@@ -6,6 +8,8 @@
     line-height: 22px;
     cursor: pointer;
     color: #ffffff;
+    text-align: center;
+    text-justify: center;
 }
 
 @media screen and (max-width:660px) {

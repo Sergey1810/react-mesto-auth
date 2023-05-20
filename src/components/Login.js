@@ -21,8 +21,8 @@ export default function Login({ handleLogin }) {
         }
         api.authorize(password, email)
             .then((data) => {
-                console.log(data)
                 if (data.token) {
+                    localStorage.setItem('token', data.token);
                     setEmail('');
                     setPassword('');
                     handleLogin();

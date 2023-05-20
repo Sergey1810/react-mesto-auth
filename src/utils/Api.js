@@ -113,12 +113,6 @@ class Api {
         body: JSON.stringify({password, email})
       })
       .then((response => response.json()))
-      .then((data) => {
-        if (data){
-          localStorage.setItem('token', data.token);
-          return data;
-        }
-      })
       .catch(err => console.log(err))
     };
     
@@ -132,7 +126,6 @@ class Api {
         }
       })
       .then(res => res.json())
-      .then(data => data)
     }
   }
 
