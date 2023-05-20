@@ -12,12 +12,14 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import Login from "./Login";
 import ProtectedRouteElement from "./ProtectedRoute";
 import Register from "./Register";
+import InfoTooltip from "./InfoTooltip"
 
 function App() {
   const [currentUser, setCurrentUser] = useState({})
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false)
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false)
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false)
+  const [isInfoTooltip, setInfoTooltip] = useState (false)
   const [selectedCard, setSelectedCard] = useState({ isOpen: false })
   const [cards, setCards] = useState([])
   const [isAuth, setIsAuth] = useState(false)
@@ -51,7 +53,7 @@ function App() {
     setIsAuth(false)
   }
 
-  const isOpen = isEditAvatarPopupOpen || isEditProfilePopupOpen || isAddPlacePopupOpen || selectedCard.isOpen
+  const isOpen = isEditAvatarPopupOpen || isEditProfilePopupOpen || isAddPlacePopupOpen || selectedCard.isOpen || isInfoTooltip
 
   useEffect(() => {
     function closeByEscape(evt) {
@@ -94,6 +96,7 @@ function App() {
     setIsEditAvatarPopupOpen(false)
     setIsAddPlacePopupOpen(false)
     setSelectedCard({ isOpen: false })
+    setInfoTooltip(false)
   }
 
   const handleEditProfileClick = () => {
@@ -106,6 +109,10 @@ function App() {
 
   const handleAddPlaceClick = () => {
     setIsAddPlacePopupOpen(!isAddPlacePopupOpen)
+  }
+
+  const handleInfoTooltipClick = () => {
+    setInfoTooltip(!isInfoTooltip)
   }
 
   function handleCardLike(item) {
@@ -172,8 +179,8 @@ function App() {
         <div className="page">
           <Header isAuth={isAuth} userData={userData} handleLoginOut={handleLoginOut} />
           <Routes>
-            <Route path='/sign-in' element={<Login handleLogin={handleLogin} />} />
-            <Route path='/sign-up' element={<Register />} />
+            <Route path='/sign-in' element={<Login handleLogin={handleLogin} handleInfoTooltipClick={handleInfoTooltipClick}/>} />
+            <Route path='/sign-up' element={<Register handleInfoTooltipClick={handleInfoTooltipClick}/>} />
             <Route path='/'
               element={<ProtectedRouteElement element={Main}
                 isAuth={isAuth}
@@ -196,6 +203,8 @@ function App() {
         <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} />
 
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+
+        <InfoTooltip isOpen={isInfoTooltip} onClose={closeAllPopups}/>
       </div>
     </CurrentUserContext.Provider>
   );

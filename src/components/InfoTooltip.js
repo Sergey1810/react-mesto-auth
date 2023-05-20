@@ -1,7 +1,11 @@
 import React from 'react'
+import PopupWithForm from './PopupWithForm'
 
-export default function InfoTooltip() {
+export default function InfoTooltip(props) {
+
   return (
-    <div>InfoTooltip</div>
+     <PopupWithForm isOpen={props.isOpen}  onClose={props.onClose} name = 'infoTooltip' title = 'Редактировать профиль'>
+
+     </PopupWithForm>
   )
 }

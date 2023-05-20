@@ -97,9 +97,6 @@ class Api {
       .then((response) => {
         return response.json();
       })
-      .then((res) => {
-        return res;
-      })
       .catch((err) => console.log(err));
     }
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { api } from '../utils/Api'
 import { useNavigate } from 'react-router-dom'
 
-export default function Login({ handleLogin }) {
+export default function Login(props) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
@@ -25,11 +25,11 @@ export default function Login({ handleLogin }) {
                     localStorage.setItem('token', data.token);
                     setEmail('');
                     setPassword('');
-                    handleLogin();
+                    props.handleLogin();
                     navigate('/', { replace: true });
                 }
             })
-            .catch(err => console.log(err));
+            .catch(props.handleInfoTooltipClick());
     }
 
     return (

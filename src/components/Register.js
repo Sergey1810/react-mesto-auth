@@ -3,7 +3,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { api } from '../utils/Api';
 
-export default function Register() {
+export default function Register(props) {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -19,11 +19,11 @@ export default function Register() {
       const handleSubmit = (e) => {
         e.preventDefault();
         if (password){
-          api.register(password, email).then((res) => {
+          api.register(password, email)
+          .then(() => {
             navigate('/sign-in', {replace: true});
-            console.log(res)
-            }
-          );
+            })
+          .catch(props.handleInfoTooltipClick())
         }
       }
     
