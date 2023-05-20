@@ -1,0 +1,9 @@
+.header__button{
+    background: none;
+    border: none;
+    color: #A9A9A9;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-style: 'Regular';
+    line-height: 22px;
+}

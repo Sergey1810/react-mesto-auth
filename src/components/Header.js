@@ -15,12 +15,12 @@ function singOut(){
    <header className="header">
      <div className="header__logo"></div>
     <div>
-      <p>{props.email}</p>
+      <p className='header__title'>{props.email}</p>
       <nav className="menu">
       <Link to="/sign-in" className= {`menu__item ${props.isAuth ? "menu__item_active" : ""}`}>Войти</Link>
       <Link to="/sign-up" className={`menu__item ${props.isAuth ? "menu__item_active" : ""}`}>Регистрация</Link>
     </nav>
-    <button onClick={singOut}></button>
+    <button className='header__button' onClick={singOut}>Выйти</button>
     </div>
      
    </header>
