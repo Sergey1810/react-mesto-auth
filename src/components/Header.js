@@ -8,7 +8,7 @@ const navigate = useNavigate()
 
 function singOut(){
   localStorage.removeItem('token')
-  navigate('/sing-in')
+  navigate('/sign-in')
 }
 
   return (
@@ -17,8 +17,8 @@ function singOut(){
     <div>
       <p>{props.email}</p>
       <nav className="menu">
-      <Link to="/sign-in" className= {`menu__item ${props.isAuth ? "menu__item_active" : ""}`}>Домой</Link>
-      <Link to="/sign-up" className={`menu__item ${props.isAuth ? "menu__item_active" : ""}`}>Советы</Link>
+      <Link to="/sign-in" className= {`menu__item ${props.isAuth ? "menu__item_active" : ""}`}>Войти</Link>
+      <Link to="/sign-up" className={`menu__item ${props.isAuth ? "menu__item_active" : ""}`}>Регистрация</Link>
     </nav>
     <button onClick={singOut}></button>
     </div>

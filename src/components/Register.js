@@ -20,7 +20,7 @@ export default function Register() {
         e.preventDefault();
         if (password){
           api.register(password, email).then((res) => {
-            navigate('/sing-in', {replace: true});
+            navigate('/sign-in', {replace: true});
             console.log(res)
             }
           );

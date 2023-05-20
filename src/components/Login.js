@@ -19,10 +19,10 @@ export default function Login({ handleLogin }) {
         if (!email || !password) {
             return;
         }
-        api.authorize(email, password)
+        api.authorize(password, email)
             .then((data) => {
                 console.log(data)
-                if (data.jwt) {
+                if (data.token) {
                     setEmail('');
                     setPassword('');
                     handleLogin();
