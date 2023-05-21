@@ -12,6 +12,12 @@
     text-justify: center;
 }
 
+@media screen and (max-width:900px) {
+    .menu__item {
+        margin-right: 30px;
+    }
+}
+
 @media screen and (max-width:660px) {
     .menu__item {
         font-size: 14px;

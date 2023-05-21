@@ -35,7 +35,7 @@ export default function Login(props) {
     return (
         <div className='auth'>
             <form onSubmit={handleSubmit}> 
-                <h2 className='popup__title auth__title'>Вход</h2>
+                <h2 className='auth__title'>Вход</h2>
                 <div className='auth__form'>
 
                     <input
@@ -59,7 +59,7 @@ export default function Login(props) {
                         onChange={onChangePassword} />
 
                 </div>
-                <button className="popup__btn-save auth__btn" type="submit">Войти</button>
+                <button className=" auth__btn" type="submit">Войти</button>
             </form>
         </div>
     )

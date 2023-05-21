@@ -12,3 +12,9 @@
     font-size: 14px;
     color: #ffffff;
 }
+
+@media screen and (max-width:660px){
+    .auth__input{
+      width: 260px;
+    }
+  }  

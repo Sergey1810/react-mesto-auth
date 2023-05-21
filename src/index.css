@@ -7,6 +7,7 @@
 @import url('./blocks/header/__button/header__button.css');
 @import url('./blocks/header/__title/header__title.css');
 @import url('./blocks/header/__info/header__info.css');
+@import url('./blocks/header/__nav/header__nav.css');
 @import url('./blocks/menu/menu.css');
 @import url('./blocks/menu/__item/menu__item.css');
 @import url('./blocks/menu/__item/_active/menu__item_active.css');
@@ -57,3 +58,5 @@
 @import url('./blocks/auth/__title/autn__title.css');
 @import url('./blocks/auth/__input/auth__input.css');
 @import url('./blocks/auth/__form/auth__form.css');
+@import url('./blocks/auth/__link/auth__link.css');
+@import url('./blocks/auth/__subtitle/auth__subtitle.css');

@@ -2,3 +2,9 @@
     display: flex;
     gap: 12px;
 }
+
+@media screen and (max-width:890px) {
+    .header__info {
+       margin-right: 15px;
+    }
+}

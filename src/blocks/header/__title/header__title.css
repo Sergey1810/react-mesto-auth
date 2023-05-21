@@ -4,3 +4,9 @@
     line-height: 22px;
     font-style: 'Medium';
 }
+
+@media screen and (max-width:660px) {
+    .header__title{
+        display: none;
+    }
+}

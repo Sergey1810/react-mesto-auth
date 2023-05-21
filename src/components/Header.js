@@ -25,6 +25,7 @@ export default function Header(props) {
           {location.pathname === '/sign-in' && <Link to="/sign-up" className= 'menu__item'>Регистрация</Link>}
         </nav>
         {props.isAuth?<button className='header__button' onClick={singOut}>Выйти</button>:null}
+        <button className='header__nav'/>
       </div>
     </header>
   )

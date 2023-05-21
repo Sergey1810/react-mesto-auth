@@ -10,3 +10,9 @@
     line-height: 22px;
     text-align: start;
 }
+
+@media screen and (max-width:660px) {
+    .header__button {
+        display: none;
+    }
+}

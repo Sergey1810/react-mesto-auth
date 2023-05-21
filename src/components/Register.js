@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { api } from '../utils/Api';
 
 export default function Register(props) {
@@ -31,7 +31,7 @@ export default function Register(props) {
   return (
     <div className='auth'>
             <form onSubmit={handleSubmit}> 
-                <h2 className='popup__title auth__title'>Регистрация</h2>
+                <h2 className='auth__title'>Регистрация</h2>
                 <div className='auth__form'>
 
                     <input
@@ -55,7 +55,8 @@ export default function Register(props) {
                         onChange={handleChangePassword} />
 
                 </div>
-                <button className="popup__btn-save auth__btn" type="submit">Войти</button>
+                <button className="auth__btn" type="submit">Зарегистрироваться</button>
+                <p className='auth__subtitle'>Уже зарегистрированны? <Link to='/sign-in' className='auth__link'> Войти</Link></p>
             </form>
         </div>
   )
