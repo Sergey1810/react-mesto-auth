@@ -3,11 +3,14 @@
 @import url('./blocks/body/body.css');
 @import url('./blocks/page/page.css');
 @import url('./blocks/header/header.css');
+@import url('./blocks/header/__container/header__container.css');
 @import url('./blocks/header/__logo/header__logo.css');
 @import url('./blocks/header/__button/header__button.css');
 @import url('./blocks/header/__title/header__title.css');
 @import url('./blocks/header/__info/header__info.css');
 @import url('./blocks/header/__nav/header__nav.css');
+@import url('./blocks/header/__info-mobile/header__info-mobile.css');
+@import url('./blocks/header/__info-mobile/_active/header__info-mobile_active.css');
 @import url('./blocks/menu/menu.css');
 @import url('./blocks/menu/__item/menu__item.css');
 @import url('./blocks/menu/__item/_active/menu__item_active.css');
