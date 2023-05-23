@@ -24,6 +24,7 @@ function App() {
   const [cards, setCards] = useState([])
   const [isAuth, setIsAuth] = useState(false)
   const [userData, setUserData] = useState(null)
+  const [isToolTipStatus, setTooltipStatus] = useState(false)
 
   const navigate = useNavigate()
 
@@ -111,8 +112,9 @@ function App() {
     setIsAddPlacePopupOpen(!isAddPlacePopupOpen)
   }
 
-  const handleInfoTooltipClick = () => {
+  const handleInfoTooltipClick = (status) => {
     setInfoTooltip(!isInfoTooltip)
+    setTooltipStatus(status)
   }
 
   function handleCardLike(item) {
@@ -204,7 +206,7 @@ function App() {
 
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
 
-        <InfoTooltip isOpen={isInfoTooltip} onClose={closeAllPopups}/>
+        <InfoTooltip isOpen={isInfoTooltip} onClose={closeAllPopups} toolTipStatus = {isToolTipStatus}/>
       </div>
     </CurrentUserContext.Provider>
   );

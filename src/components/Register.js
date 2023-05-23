@@ -20,10 +20,11 @@ export default function Register(props) {
         e.preventDefault();
         if (password){
           api.register(password, email)
-          .then(() => {
+          .then((data) => {
+            data.data ? props.handleInfoTooltipClick(true) : props.handleInfoTooltipClick(false)
             navigate('/sign-in', {replace: true});
             })
-          .catch(props.handleInfoTooltipClick())
+          .catch((e) => console.log(e))
         }
       }
     

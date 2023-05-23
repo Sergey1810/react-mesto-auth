@@ -21,15 +21,16 @@ export default function Login(props) {
         }
         api.authorize(password, email)
             .then((data) => {
+                data.token ? props.handleInfoTooltipClick(true) : props.handleInfoTooltipClick(false)
                 if (data.token) {
                     localStorage.setItem('token', data.token);
                     setEmail('');
                     setPassword('');
                     props.handleLogin();
                     navigate('/', { replace: true });
-                }
+                }   
             })
-            .catch(props.handleInfoTooltipClick());
+            .catch((e) => console.log(e) );
     }
 
     return (

@@ -3,9 +3,9 @@
     gap: 12px;
 }
 
-@media screen and (max-width:890px) {
+@media screen and (max-width:660px) {
     .header__info {
         display: none;
-       margin-right: 15px;
+        margin-right: 15px;
     }
 }

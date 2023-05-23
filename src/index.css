@@ -9,6 +9,7 @@
 @import url('./blocks/header/__title/header__title.css');
 @import url('./blocks/header/__info/header__info.css');
 @import url('./blocks/header/__nav/header__nav.css');
+@import url('./blocks/header/__nav/_opened/header__nav_opened.css');
 @import url('./blocks/header/__info-mobile/header__info-mobile.css');
 @import url('./blocks/header/__info-mobile/_active/header__info-mobile_active.css');
 @import url('./blocks/menu/menu.css');
@@ -55,6 +56,9 @@
 @import url('./blocks/popup/__error-message/popup__error-message.css');
 @import url('./blocks/popup/__error-message/_active/popup__error-message_active.css');
 @import url('./blocks/popup/__field/popup__field.css');
+@import url('./blocks/popup/__toolTip-img/popup__toolTip-img.css');
+@import url('./blocks/popup/__tooltip/popup__tooltip.css');
+@import url('./blocks/popup/__tooltip-title/popup__tooltip-title.css');
 @import url('./blocks/popup-image/popup-image.css');
 @import url('./blocks/auth/auth.css');
 @import url('./blocks/auth/__btn/auth__btn.css');
