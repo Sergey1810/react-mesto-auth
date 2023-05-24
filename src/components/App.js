@@ -19,7 +19,7 @@ function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false)
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false)
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false)
-  const [isInfoTooltip, setInfoTooltip] = useState (false)
+  const [isInfoTooltip, setInfoTooltip] = useState(false)
   const [selectedCard, setSelectedCard] = useState({ isOpen: false })
   const [cards, setCards] = useState([])
   const [isAuth, setIsAuth] = useState(false)
@@ -181,8 +181,8 @@ function App() {
         <div className="page">
           <Header isAuth={isAuth} userData={userData} handleLoginOut={handleLoginOut} />
           <Routes>
-            <Route path='/sign-in' element={<Login handleLogin={handleLogin} handleInfoTooltipClick={handleInfoTooltipClick}/>} />
-            <Route path='/sign-up' element={<Register handleInfoTooltipClick={handleInfoTooltipClick}/>} />
+            <Route path='/sign-in' element={<Login handleLogin={handleLogin} handleInfoTooltipClick={handleInfoTooltipClick} />} />
+            <Route path='/sign-up' element={<Register handleInfoTooltipClick={handleInfoTooltipClick} />} />
             <Route path='/'
               element={<ProtectedRouteElement element={Main}
                 isAuth={isAuth}
@@ -206,7 +206,7 @@ function App() {
 
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
 
-        <InfoTooltip isOpen={isInfoTooltip} onClose={closeAllPopups} toolTipStatus = {isToolTipStatus}/>
+        <InfoTooltip isOpen={isInfoTooltip} onClose={closeAllPopups} toolTipStatus={isToolTipStatus} />
       </div>
     </CurrentUserContext.Provider>
   );

@@ -1,12 +1,6 @@
-.header__title{
+.header__title {
     font-family: 'Inter', sans-serif;
     font-size: 18px;
     line-height: 22px;
     font-style: 'Medium';
-}
-
-@media screen and (max-width:660px) {
-    .header__title{
-       
-    }
 }

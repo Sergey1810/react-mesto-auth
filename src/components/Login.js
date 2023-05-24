@@ -28,14 +28,14 @@ export default function Login(props) {
                     setPassword('');
                     props.handleLogin();
                     navigate('/', { replace: true });
-                }   
+                }
             })
-            .catch((e) => console.log(e) );
+            .catch((e) => console.log(e));
     }
 
     return (
         <div className='auth'>
-            <form onSubmit={handleSubmit}> 
+            <form onSubmit={handleSubmit}>
                 <h2 className='auth__title'>Вход</h2>
                 <div className='auth__form'>
 

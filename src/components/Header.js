@@ -29,17 +29,15 @@ export default function Header(props) {
       </div>
       <div className='header__container'>
         <div className="header__logo"></div>
-       
-       
         <nav className="menu">
           {location.pathname === '/sign-up' && <Link to="/sign-in" className='menu__item'>Войти</Link>}
           {location.pathname === '/sign-in' && <Link to="/sign-up" className='menu__item'>Регистрация</Link>}
-        </nav> 
-        <div className='header__info'>
+        </nav>
+        {location.pathname === '/' && <div className='header__info'>
           <p className='header__title'>{props.userData}</p>
           {props.isAuth ? <button className='header__button' onClick={singOut}>Выйти</button> : null}
-        </div> 
-        {location.pathname === '/' && <button className={`header__nav ${mobileActive && 'header__nav_opened'}`} onClick={handleMobileNav}/> }
+        </div>}
+        {location.pathname === '/' && <button className={`header__nav ${mobileActive && 'header__nav_opened'}`} onClick={handleMobileNav} />}
       </div>
     </header>
   )
