@@ -94,9 +94,7 @@ class Api {
         },
         body: JSON.stringify({password, email})
       })
-      .then((response) => {
-        return response.json();
-      })
+      .then((response) => {return response.json();})
       .catch((err) => console.log(err));
     }
 
@@ -123,6 +121,7 @@ class Api {
         }
       })
       .then(res => res.json())
+      .catch(err => console.log(err))
     }
   }
 
