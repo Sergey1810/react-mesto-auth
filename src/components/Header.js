@@ -23,10 +23,10 @@ export default function Header(props) {
 
   return (
     <header className="header">
-      <div className={`header__info-mobile ${mobileActive && 'header__info-mobile_active'}`}>
+     {location.pathname === '/' && <div className={`header__info-mobile ${mobileActive && 'header__info-mobile_active'}`}>
         <p className='header__title'>{props.userData}</p>
         {props.isAuth ? <button className='header__button' onClick={singOut}>Выйти</button> : null}
-      </div>
+      </div>}
       <div className='header__container'>
         <div className="header__logo"></div>
         <nav className="menu">
