@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import { useState, useEffect } from "react";
 import ImagePopup from "./ImagePopup";
 import { api } from '../utils/Api'
+import { auth } from '../utils/Auth'
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
@@ -35,13 +36,15 @@ function App() {
   const handleTokenCheck = () => {
     if (localStorage.getItem('token')) {
       const jwt = localStorage.getItem('token');
-      api.checkToken(jwt).then((res) => {
-        if (res) {
-          setUserData(res.data.email)
-          setIsAuth(true);
-          navigate("/", { replace: true })
-        }
-      });
+      auth.checkToken(jwt)
+        .then((res) => {
+          if (res) {
+            setUserData(res.data.email)
+            setIsAuth(true);
+            navigate("/", { replace: true })
+          }
+        })
+        .catch((e) => console.log(e));
     }
   }
 

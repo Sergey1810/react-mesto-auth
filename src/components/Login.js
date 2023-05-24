@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { api } from '../utils/Api'
+import { auth } from '../utils/Auth'
 import { useNavigate } from 'react-router-dom'
 
 export default function Login(props) {
@@ -19,9 +19,9 @@ export default function Login(props) {
         if (!email || !password) {
             return;
         }
-        api.authorize(password, email)
+        auth.authorize(password, email)
             .then((data) => {
-                data.token ? props.handleInfoTooltipClick(true) : props.handleInfoTooltipClick(false)
+                data.token && props.handleInfoTooltipClick(true)
                 if (data.token) {
                     localStorage.setItem('token', data.token);
                     setEmail('');
@@ -30,7 +30,7 @@ export default function Login(props) {
                     navigate('/', { replace: true });
                 }
             })
-            .catch((e) => console.log(e));
+            .catch((e) => e && props.handleInfoTooltipClick(false));
     }
 
     return (

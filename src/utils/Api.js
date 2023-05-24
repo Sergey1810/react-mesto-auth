@@ -1,11 +1,8 @@
-export const BASE_URL = 'https://auth.nomoreparties.co';
 
-class Api {
+export class Api {
     constructor(options) {
       this.baseUrl = options.baseUrl;
       this.headers = options.headers;
-      this.profileTitle = document.querySelector('.profile__title');
-      this.profileAbout = document.querySelector('.profile__subtitle')
     }
     _checkResponse(res){
         if(res.ok){
@@ -83,45 +80,6 @@ class Api {
         avatar: `${url}`
         })})
       .then(res => {return this._checkResponse(res)})
-    }
-
-    register ( password, email) {
-      return fetch(`${BASE_URL}/signup`, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({password, email})
-      })
-      .then((response) => {return response.json();})
-      .catch((err) => console.log(err));
-    }
-
-    authorize (password, email) {
-      return fetch(`${BASE_URL}/signin`, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({password, email})
-      })
-      .then((response => response.json()))
-      .catch(err => console.log(err))
-    };
-    
-    checkToken (token) {
-      return fetch(`${BASE_URL}/users/me`, {
-        method: 'GET',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        }
-      })
-      .then(res => res.json())
-      .catch(err => console.log(err))
     }
   }
 

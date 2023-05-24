@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import React from 'react'
 import { useNavigate, Link } from 'react-router-dom';
-import { api } from '../utils/Api';
+import { auth } from '../utils/Auth';
 
 export default function Register(props) {
 
@@ -19,12 +19,12 @@ export default function Register(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password) {
-      api.register(password, email)
+      auth.register(password, email)
         .then((data) => {
-          data.data ? props.handleInfoTooltipClick(true) : props.handleInfoTooltipClick(false)
+          data.data && props.handleInfoTooltipClick(true)
           navigate('/sign-in', { replace: true });
         })
-        .catch((e) => console.log(e))
+        .catch((e) => e && props.handleInfoTooltipClick(false))
     }
   }
 
